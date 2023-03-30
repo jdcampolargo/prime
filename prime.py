@@ -6,8 +6,8 @@
 
 # That is what I want to figure out. 
 
+import matplotlib.pyplot as plt
 import math
-
 ## We need to write a for-loop but we need to get the primes numbers from somewhere so
 
 ## generate_primes is function that will generate the prime numbers for us.
@@ -27,9 +27,31 @@ def generate_primes(n):
     return primes
 
 
-primes = generate_primes(10)
+primes = generate_primes(2000)
 diffs = []
 for i in range(1, len(primes)):
     diff = primes[i] - primes[i-1]
     diffs.append(diff)
-    print(f"The difference between {primes[i-1]} and {primes[i]} is {diff}")
+    # print(f"The difference between {primes[i-1]} and {primes[i]} is {diff}")
+
+
+longest_diff = max(diffs)
+longest_diff_index = diffs.index(longest_diff)
+
+      
+prime1 = primes[longest_diff_index]
+prime2 = primes[longest_diff_index + 1]
+
+
+print(f"The longest difference between prime numbers is {longest_diff}")
+print(f"The two prime numbers with this difference are {prime1} and {prime2}")
+
+
+print(diffs)
+
+# Plot
+plt.plot(diffs)
+plt.title("Differences Between Consecutive Prime Numbers")
+plt.xlabel("Index")
+plt.ylabel("Difference")
+# plt.show()
