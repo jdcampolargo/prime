@@ -35,6 +35,7 @@ for i in range(1, len(primes)):
     # print(f"The difference between {primes[i-1]} and {primes[i]} is {diff}")
 
 
+
 longest_diff = max(diffs)
 longest_diff_index = diffs.index(longest_diff)
 
