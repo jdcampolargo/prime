@@ -54,9 +54,47 @@ print(f"The")
 
 print(diffs)
 
+
 # Plot
-plt.plot(diffs)
-plt.title("Differences Between Consecutive Prime Numbers")
-plt.xlabel("Index")
-plt.ylabel("Difference")
+# plt.plot(diffs)
+# plt.title("Differences Between Consecutive Prime Numbers")
+# plt.xlabel("Index")
+# plt.ylabel("Difference")
+# plt.show()
+
+
+
+
+
+## What happens if you take the fourier transform of the differences between consecutive prime numbers? 
+## Maybe in the fourier transform, we can see some interesting patterns such as different frequencies.
+
+## Let's try it out
+
+# Fourier Transform
+
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy
+
+
+# Number of sample points
+N = 600
+# sample spacing
+T = 1.0 / 800.0
+x = np.linspace(1, len(diffs), len(diffs))
+y = diffs
+yf = scipy.fft(y)
+xf = np.linspace(0.0, 1.0/(2.0*T), N//2)
+
+print("x axis", x)
+
+plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
+
+plt.grid()
+
 plt.show()
+
+
+# Why the fourier transform? It's what frequency fits your data. If it's a sine wave, it would be a perfect spike. If there's only one frequency, if it's 
+# the frequency that is most common is whatever that spike is. The most common difference.
