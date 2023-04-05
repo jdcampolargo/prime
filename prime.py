@@ -8,7 +8,9 @@
 
 import matplotlib.pyplot as plt
 import math
-## We need to write a for-loop but we need to get the primes numbers from somewhere so
+import numpy as np
+import scipy
+
 
 ## generate_primes is function that will generate the prime numbers for us.
 
@@ -27,7 +29,7 @@ def generate_primes(n):
     return primes
 
 
-primes = generate_primes(20000)
+primes = generate_primes(200000)
 diffs = []
 for i in range(1, len(primes)):
     diff = primes[i] - primes[i-1]
@@ -56,11 +58,11 @@ print(diffs)
 
 
 # Plot
-# plt.plot(diffs)
-# plt.title("Differences Between Consecutive Prime Numbers")
-# plt.xlabel("Index")
-# plt.ylabel("Difference")
-# plt.show()
+plt.plot(diffs)
+plt.title("Differences Between Consecutive Prime Numbers")
+plt.xlabel("Number of Primes")
+plt.ylabel("Difference")
+plt.show()
 
 
 
@@ -73,10 +75,6 @@ print(diffs)
 
 # Fourier Transform
 
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy
-
 
 # Number of sample points
 N = 600
@@ -87,13 +85,13 @@ y = diffs
 yf = scipy.fft(y)
 xf = np.linspace(0.0, 1.0/(2.0*T), N//2)
 
-print("x axis", x)
+# print("x axis", x)
 
-plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
+# plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
 
-plt.grid()
+# plt.grid()
 
-plt.show()
+# plt.show()
 
 
 
