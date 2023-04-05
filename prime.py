@@ -96,5 +96,7 @@ plt.grid()
 plt.show()
 
 
+
+
 # Why the fourier transform? It's what frequency fits your data. If it's a sine wave, it would be a perfect spike. If there's only one frequency, if it's 
 # the frequency that is most common is whatever that spike is. The most common difference.
