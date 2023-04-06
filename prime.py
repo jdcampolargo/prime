@@ -29,7 +29,7 @@ def generate_primes(n):
     return primes
 
 
-primes = generate_primes(200000)
+primes = generate_primes(20000)
 diffs = []
 for i in range(1, len(primes)):
     diff = primes[i] - primes[i-1]

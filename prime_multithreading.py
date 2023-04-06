@@ -46,7 +46,7 @@ def get_longest_diff(primes):
     return longest_diff, prime1, prime2, diffs
 
 if __name__ == '__main__':
-    n = 2000000
+    n = 200000000
     num_threads = 4
 
     primes = generate_all_primes(n, num_threads)
@@ -61,3 +61,7 @@ if __name__ == '__main__':
     plt.xlabel("Number of Primes")
     plt.ylabel("Difference")
     plt.show()
+
+    # Print the progress of each thread
+    for t in threads:
+        print(f"Thread {t.ident} processed {t.end - t.start} numbers")
